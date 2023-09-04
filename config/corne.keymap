@@ -3,6 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
+// __________ ____________ ____________ ____________ ____________ ____________ _________ ________ _________ _________ _________ ________
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -15,42 +16,41 @@
         default_layer {
             label = "Default";
             bindings = <
-   &kp TAB  &kp Q  &kp W      &kp E     &kp R      &kp T      &kp Y  &kp U      &kp I    &kp O     &kp P  &kp BSPC
-&kp ESCAPE  &kp A  &kp S      &kp D     &kp F      &kp G      &kp H  &kp J      &kp K    &kp L  &kp SEMI   &kp SQT
-     &mo 1  &kp Z  &kp X      &kp C     &kp V      &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH     &mo 2
-                          &kp LCTRL  &kp LGUI  &kp SPACE    &kp RET  &mo 3   &kp RALT
+   &kp TAB    &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y     &kp U    &kp I     &kp O     &kp P     &kp BSPC
+   &kp ESCAPE &kp A        &kp S        &kp D        &kp F        &kp G        &kp H     &kp J    &kp K     &kp L     &kp SEMI  &kp SQT
+   &mo 1      &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N     &kp M    &kp COMMA &kp DOT   &kp FSLH  &mo 2
+                                        &kp LCTRL    &kp LGUI     &kp SPACE    &kp RET   &mo 3    &kp RALT
             >;
         };
 
         lshift_layer {
             label = "LShift";
             bindings = <
-   &kp TAB      &none   &none      &none     &none      &none        &kp Y  &kp U      &kp I    &kp O     &kp P  &kp BACKSPACE
-&kp ESCAPE  &kp KP_N1  &kp N2      &none     &none      &none    &kp H  &kp J      &kp K    &kp L  &kp SEMI        &kp SQT
-&trans      &none   &none      &none     &none      &none        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH          &none
-                               &kp LCTRL  &kp LGUI  &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp TAB    &none        &none        &none        &none        &none        &kp Y     &kp U    &kp I     &kp O     &kp P     &kp BSPC
+   &kp ESCAPE &kp KP_N1    &kp N2       &none        &none        &none        &kp H     &kp J    &kp K     &kp L     &kp SEMI  &kp SQT
+   &trans     &none        &none        &none        &none        &none        &kp N     &kp M    &kp COMMA &kp DOT   &kp FSLH  &none
+                                        &kp LCTRL    &kp LGUI     &kp SPACE    &kp RET   &trans   &kp RALT
             >;
         };
 
         rshift_layer {
             label = "RShift";
             bindings = <
-   &kp TAB  &kp Q  &kp W      &kp E     &kp R      &kp T    &none Y  &none U     &none   &none      &none    &kp BSPC
-&kp ESCAPE  &kp A  &kp S      &kp D     &kp F  &kp G    &none H  &none J     &none  &kp N9  &kp KP_N0       &none
-     &none  &kp Z  &kp X      &kp C     &kp V      &kp B    &none N  &none M     &none   &none      &none  &trans
-                          &kp LCTRL  &kp LGUI  &kp SPACE    &kp RET    &trans  &kp RALT
+   &kp TAB    &kp Q        &kp W        &kp E        &kp R        &kp T        &none     &none    &none     &none     &none     &kp BSPC
+   &kp ESCAPE &kp A        &kp S        &kp D        &kp F        &kp G        &none     &none    &none     &kp N9    &kp KP_N0 &none
+   &none      &kp Z        &kp X        &kp C        &kp V        &kp B        &none     &none    &none     &none     &none     &trans
+                                        &kp LCTRL    &kp LGUI     &kp SPACE    &kp RET   &trans   &kp RALT
             >;
         };
 
         special_layer {
             label = "Special";
             bindings = <
-   &kp TAB        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5      &kp N6    &kp N7  &kp N8     &kp N9  &kp N0  &trans
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
-    &trans        &trans        &trans        &trans        &trans        &trans      &trans    &trans  &trans     &trans  &trans  &trans
-                                              &trans        &trans        &trans      &trans    &trans  &trans
+   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5       &kp N6    &kp N7   &kp N8    &kp N9    &kp N0    &trans
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &trans    &trans
+   &trans     &trans       &trans       &trans       &trans       &trans       &trans    &trans   &trans    &trans    &trans    &trans
+                                        &trans       &trans       &trans       &trans    &trans   &trans
             >;
         };
     };
 };
-
