@@ -12,7 +12,7 @@
 / {
     macros {
         lm: lm {
-            label = "Mod Layer";
+            label = "Layer with Mod";
             compatible = "zmk,behavior-macro-two-param";
             wait-ms = <0>;
             tap-ms = <0>;
@@ -62,10 +62,10 @@
         lshift_layer {
             label = "LShift";
             bindings = <
-   &kp TAB      &none        &none        &none        &none        &none        &kp Y     &kp U    &kp I     &kp O     &kp P     &kp BSPC
-   &kp ESCAPE   &kp KP_N1    &kp N2       &none        &none        &none        &kp H     &kp J    &kp K     &kp L     &kp SEMI  &kp SQT
-   &none        &none        &none        &none        &none        &none        &kp N     &kp M    &kp COMMA &kp DOT   &kp FSLH  &none
-                                          &kp LCTRL    &kp LGUI     &kp SPACE    &kp RET   &trans   &kp RALT
+   &kp TAB      &none            &none         &none        &none        &none        &kp Y     &kp U    &kp I     &kp O     &kp P     &kp BSPC
+   &kp ESCAPE   &km LSHIFT KP_N1 &km LSHIFT N2 &none        &none        &none        &kp H     &kp J    &kp K     &kp L     &kp SEMI  &kp SQT
+   &none        &none            &none         &none        &none        &none        &kp N     &kp M    &kp COMMA &kp DOT   &kp FSLH  &none
+                                               &kp LCTRL    &kp LGUI     &kp SPACE    &kp RET   &trans   &kp RALT
             >;
         };
 
@@ -90,6 +90,3 @@
         };
     };
 };
-
-
-
