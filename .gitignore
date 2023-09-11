@@ -1,0 +1,17 @@
+.ccache
+.cmake
+.west
+CMakeCache.txt
+CMakeFiles
+Kconfig
+build
+modules
+zephyr
+zephyr_modules.txt
+zephyr_settings.txt
+zmk
+
+left/*
+left/config
+right/*
+right/config
