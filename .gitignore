@@ -10,6 +10,7 @@ zephyr
 zephyr_modules.txt
 zephyr_settings.txt
 zmk
+.DS_Store
 
 left/*
 left/config
