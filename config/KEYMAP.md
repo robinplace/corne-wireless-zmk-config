@@ -111,8 +111,8 @@ e a s d f g   6 s ⌘ c o
           _   e █  
 
 layer 3 MOD_NUMBER
-                7 8 9 * b
-  o c ⌘ s █     4 5 6 / +
+t               7 8 9 * b
+e o c ⌘ s █     4 5 6 / +
           e   0 1 2 3 . -
         █ _   e
 
@@ -122,3 +122,34 @@ layer 4 SPECIAL_MOD
   [ ] { } \              
           _   e █
 
+smart combinations
+
+layer 0 BASE
+t q w e r t   y u i o p b
+e a s d f g   h j k l ; '
+s z x c v b   n m , . /  
+      c ⌘ _   s o 1
+
+layer 1 MOD_BASE
+  c 0 1 2     y u i o p b
+  s o c ⌘ 5   h j k l ; '
+              n m , . /  
+        █ _   e    
+
+layer 2 BASE_MOD
+t q w e r t              
+e a s d f g   6 s ⌘ c o  
+  z x c v b              
+          _   e █  
+
+layer 3 MOD_NUMBER
+t               7 8 9 * b
+e o c ⌘ s █     4 5 6 / +
+          e   0 1 2 3 . -
+        █ _   e
+
+layer 4 SPECIAL_MOD
+~ ! @ # $ %              
+^ & * ( ) |   █ ⌘ c o s  
+  [ ] { } \              
+          _   e █
