@@ -4,9 +4,14 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+
 #define kp &kp
-#define none &none
-#define trans &trans
+#define kp__ kp
+#define none__ &none
+#define trans_ &trans
 #define mo &mo
 #define bt &bt
 
@@ -16,14 +21,10 @@
 #define M_N 3
 #define S_M 4
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-
-#define bt_0 bt BT_SEL 0
-#define bt_1 bt BT_SEL 1
-#define bt_2 bt BT_SEL 2
-#define bt_C bt BT_CLR
+#define bt___0 bt BT_SEL 0
+#define bt___1 bt BT_SEL 1
+#define bt___2 bt BT_SEL 2
+#define bt___C bt BT_CLR
 
 #define SPA SPACE
 #define BSP BACKSPACE
@@ -69,50 +70,50 @@
         base_base_layer {
             label = "BASE_BASE";
             bindings = <
-kp TAB kp Q   kp W   kp E   kp R   kp T   kp Y   kp U   kp I   kp O   kp P   kp BSP
-kp ESC kp A   kp S   kp D   kp F   kp G   kp H   kp J   kp K   kp L   kp SEM kp SQT
-mp_LSH kp Z   kp X   kp C   kp V   kp B   kp N   kp M   kp COM kp DOT kp FSL mp_RSH
-                     none   mo M_B kp SPA kp RET mo B_M none
+kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T kp__ Y kp__ U kp__ I kp__ O kp__ P kp BSP
+kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G kp__ H kp__ J kp__ K kp__ L kp SEM kp SQT
+mp_LSH kp__ Z kp__ X kp__ C kp__ V kp__ B kp__ N kp__ M kp COM kp DOT kp FSL mp_RSH
+                     none__ mo M_B kp SPA kp RET mo B_M none__
             >;
         };
 
         mod_base_layer {
             label = "MOD_BASE";
             bindings = <
-none   bt_C   bt_0   bt_1   bt_2   none   kp Y   kp U   kp I   kp O   kp P   kp BSP
-none   mp_LOP mp_LCT mp_LCM mp_LSH none   kp H   kp J   kp K   kp L   kp SEM kp SQT
-none   none   none   none   none   none   kp N   kp M   kp COM kp DOT kp FSL none
-                     none   trans  kp SPA kp RET none   none
+none__ bt___C bt___0 bt___1 bt___2 none__ kp__ Y kp__ U kp__ I kp__ O kp__ P kp BSP
+none__ mp_LOP mp_LCT mp_LCM mp_LSH none__ kp__ H kp__ J kp__ K kp__ L kp SEM kp SQT
+none__ none__ none__ none__ none__ none__ kp__ N kp__ M kp COM kp DOT kp FSL none__
+                     none__ trans_ kp SPA kp RET none__ none__
             >;
         };
 
         base_mod_layer {
             label = "BASE_MOD";
             bindings = <
-kp TAB kp Q   kp W   kp E   kp R   kp T   none   none   none   none   none   none
-kp ESC kp A   kp S   kp D   kp F   kp G   none   mp_RSH mp_RCM mp_RCT mp_ROP none
-none   kp Z   kp X   kp C   kp V   kp B   none   none   none   none   none   none
-                     none   none   kp SPA kp RET trans  none
+kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T none__ none__ none__ none__ none__ none__
+kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G none__ mp_RSH mp_RCM mp_RCT mp_ROP none__
+none__ kp__ Z kp__ X kp__ C kp__ V kp__ B none__ none__ none__ none__ none__ none__
+                     none__ none__ kp SPA kp RET trans_ none__
             >;
         };
 
         mod_number_layer {
             label = "MOD_NUMBER";
             bindings = <
-none   bt_C   bt_0   bt_1   bt_2   none   none   kp K_7 kp K_8 kp K_9 kp K_A kp BSP
-none   mp_LOP mp_LCT mp_LCM mp_LSH none   none   kp K_4 kp K_5 kp K_6 kp K_S kp K_P
-none   none   none   none   none   none   kp K_0 kp K_1 kp K_2 kp K_3 kp K_D kp K_M
-                     none   trans  kp SPA kp RET none   none
+none__ bt___C bt___0 bt___1 bt___2 none__ none__ kp K_7 kp K_8 kp K_9 kp K_A kp BSP
+none__ mp_LOP mp_LCT mp_LCM mp_LSH none__ none__ kp K_4 kp K_5 kp K_6 kp K_S kp K_P
+none__ none__ none__ none__ none__ none__ kp K_0 kp K_1 kp K_2 kp K_3 kp K_D kp K_M
+                     none__ trans_ kp SPA kp RET none__ none__
             >;
         };
 
         special_mod_layer {
             label = "SPECIAL_MOD";
             bindings = <
-kp TAB kp Q   kp W   kp E   kp R   kp T   none   none   none   none   none   none
-kp ESC kp A   kp S   kp D   kp F   kp G   none   mp_RSH mp_RCM mp_RCT mp_ROP none
-none   kp Z   kp X   kp C   kp V   kp B   none   none   none   none   none   none
-                     none   none   kp SPA kp RET trans  none
+kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T none__ none__ none__ none__ none__ none__
+kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G none__ mp_RSH mp_RCM mp_RCT mp_ROP none__
+none__ kp__ Z kp__ X kp__ C kp__ V kp__ B none__ none__ none__ none__ none__ none__
+                     none__ none__ kp SPA kp RET trans_ none__
             >;
         };
     };
