@@ -4,6 +4,12 @@
  * SPDX-License-Identifier: MIT
  */
 
+#define kp &kp
+#define none &none
+#define trans &trans
+#define mo &mo
+#define bt &bt
+
 #define B_B 0
 #define M_B 1
 #define B_M 2
@@ -14,10 +20,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-#define B0 BT_SEL 0
-#define B1 BT_SEL 1
-#define B2 BT_SEL 2
-#define BC BT_CLR
+#define bt_0 bt BT_SEL 0
+#define bt_1 bt BT_SEL 1
+#define bt_2 bt BT_SEL 2
+#define bt_C bt BT_CLR
 
 #define SPA SPACE
 #define BSP BACKSPACE
@@ -25,15 +31,15 @@
 #define SEM SEMI
 #define FSL FSLH
 
-#define mp_LOP &kp LEFT_ALT
-#define mp_LCT &kp LEFT_CONTROL
-#define mp_LCM &kp LEFT_GUI
-#define mp_LSH &kp LEFT_SHIFT
+#define mp_LOP kp LEFT_ALT
+#define mp_LCT kp LEFT_CONTROL
+#define mp_LCM kp LEFT_GUI
+#define mp_LSH kp LEFT_SHIFT
 
-#define mp_RSH &kp RIGHT_SHIFT
-#define mp_RCM &kp RIGHT_GUI
-#define mp_RCT &kp RIGHT_CONTROL
-#define mp_ROP &kp RIGHT_ALT
+#define mp_RSH kp RIGHT_SHIFT
+#define mp_RCM kp RIGHT_GUI
+#define mp_RCT kp RIGHT_CONTROL
+#define mp_ROP kp RIGHT_ALT
 
 #define K_1 KP_NUMBER_1
 #define K_2 KP_NUMBER_2
@@ -52,7 +58,7 @@
 #define K_P KP_PLUS
 #define K_M KP_MINUS
 
-/////// /////// /////// /////// /////// /////// /////// /////// /////// /////// /////// ///////
+////// ////// ////// ////// ////// ////// ////// ////// ////// ////// ////// //////
 
 / {
     macros {
@@ -63,50 +69,50 @@
         base_base_layer {
             label = "BASE_BASE";
             bindings = <
-&kp TAB &kp Q   &kp W   &kp E   &kp R   &kp T   &kp Y   &kp U   &kp I   &kp O   &kp P   &kp BSP
-&kp ESC &kp A   &kp S   &kp D   &kp F   &kp G   &kp H   &kp J   &kp K   &kp L   &kp SEM &kp SQT
-&none   &kp Z   &kp X   &kp C   &kp V   &kp B   &kp N   &kp M   &kp COM &kp DOT &kp FSL &none
-                        &none   &mo M_B &kp SPA &kp RET &mo B_M &none
+kp TAB kp Q   kp W   kp E   kp R   kp T   kp Y   kp U   kp I   kp O   kp P   kp BSP
+kp ESC kp A   kp S   kp D   kp F   kp G   kp H   kp J   kp K   kp L   kp SEM kp SQT
+mp_LSH kp Z   kp X   kp C   kp V   kp B   kp N   kp M   kp COM kp DOT kp FSL mp_RSH
+                     none   mo M_B kp SPA kp RET mo B_M none
             >;
         };
 
         mod_base_layer {
             label = "MOD_BASE";
             bindings = <
-&none   &bt BC  &bt B0  &bt B1  &bt B2  &none   &kp Y   &kp U   &kp I   &kp O   &kp P   &kp BSP
-&none   mp_LOP  mp_LCT  mp_LCM  mp_LSH  &none   &kp H   &kp J   &kp K   &kp L   &kp SEM &kp SQT
-&none   &none   &none   &none   &none   &none   &kp N   &kp M   &kp COM &kp DOT &kp FSL &none
-                        &none   &trans  &kp SPA &kp RET &none   &none
+none   bt_C   bt_0   bt_1   bt_2   none   kp Y   kp U   kp I   kp O   kp P   kp BSP
+none   mp_LOP mp_LCT mp_LCM mp_LSH none   kp H   kp J   kp K   kp L   kp SEM kp SQT
+none   none   none   none   none   none   kp N   kp M   kp COM kp DOT kp FSL none
+                     none   trans  kp SPA kp RET none   none
             >;
         };
 
         base_mod_layer {
             label = "BASE_MOD";
             bindings = <
-&kp TAB &kp Q   &kp W   &kp E   &kp R   &kp T   &none   &none   &none   &none   &none   &none
-&kp ESC &kp A   &kp S   &kp D   &kp F   &kp G   &none   mp_RSH  mp_RCM  mp_RCT  mp_ROP &none
-&none   &kp Z   &kp X   &kp C   &kp V   &kp B   &none   &none   &none   &none   &none   &none
-                        &none   &none   &kp SPA &kp RET &trans  &none
+kp TAB kp Q   kp W   kp E   kp R   kp T   none   none   none   none   none   none
+kp ESC kp A   kp S   kp D   kp F   kp G   none   mp_RSH mp_RCM mp_RCT mp_ROP none
+none   kp Z   kp X   kp C   kp V   kp B   none   none   none   none   none   none
+                     none   none   kp SPA kp RET trans  none
             >;
         };
 
         mod_number_layer {
             label = "MOD_NUMBER";
             bindings = <
-&none   &bt BC  &bt B0  &bt B1  &bt B2  &none   &none   &kp K_7 &kp K_8 &kp K_9 &kp K_A &kp BSP
-&none   mp_LOP  mp_LCT  mp_LCM  mp_LSH  &none   &none   &kp K_4 &kp K_5 &kp K_6 &kp K_S &kp K_P
-&none   &none   &none   &none   &none   &none   &kp K_0 &kp K_1 &kp K_2 &kp K_3 &kp K_D &kp K_M
-                        &none   &trans  &kp SPA &kp RET &none   &none
+none   bt_C   bt_0   bt_1   bt_2   none   none   kp K_7 kp K_8 kp K_9 kp K_A kp BSP
+none   mp_LOP mp_LCT mp_LCM mp_LSH none   none   kp K_4 kp K_5 kp K_6 kp K_S kp K_P
+none   none   none   none   none   none   kp K_0 kp K_1 kp K_2 kp K_3 kp K_D kp K_M
+                     none   trans  kp SPA kp RET none   none
             >;
         };
 
         special_mod_layer {
             label = "SPECIAL_MOD";
             bindings = <
-&kp TAB &kp Q   &kp W   &kp E   &kp R   &kp T   &none   &none   &none   &none   &none   &none
-&kp ESC &kp A   &kp S   &kp D   &kp F   &kp G   &none   mp_RSH  mp_RCM  mp_RCT  mp_ROP  &none
-&none   &kp Z   &kp X   &kp C   &kp V   &kp B   &none   &none   &none   &none   &none   &none
-                        &none   &none   &kp SPA &kp RET &trans  &none
+kp TAB kp Q   kp W   kp E   kp R   kp T   none   none   none   none   none   none
+kp ESC kp A   kp S   kp D   kp F   kp G   none   mp_RSH mp_RCM mp_RCT mp_ROP none
+none   kp Z   kp X   kp C   kp V   kp B   none   none   none   none   none   none
+                     none   none   kp SPA kp RET trans  none
             >;
         };
     };
