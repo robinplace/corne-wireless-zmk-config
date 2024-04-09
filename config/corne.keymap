@@ -20,8 +20,6 @@
 #define mp_LO kp LEFT_ALT
 #define mp_LC kp LEFT_CONTROL
 #define mp_LM kp LEFT_GUI
-#define mp_LS kp LEFT_SHIFT
-#define mp_RS kp RIGHT_SHIFT
 #define mp_RM kp RIGHT_GUI
 #define mp_RC kp RIGHT_CONTROL
 #define mp_RO kp RIGHT_ALT
@@ -53,17 +51,6 @@
 // left only special characters
 #define kp_GR GRAVE
 
-#define kp_EX kp KP_ASTERISK
-#define kp_SLA kp KP_SLASH
-#define kp_DOT kp KP_DOT
-#define kp_PLU kp KP_PLUS
-#define kp_MIN kp KP_MINUS
-#define kp_GRA kp GRAVE
-#define kp_TIL kp TILDE
-#define kp_EXC kp EXCL
-#define kp_AMP kp AMPS
-#define kp_ATS kp AT
-
 #define ka_LEF kp LEFT_ARROW
 #define ka_DOW kp DOWN_ARROW
 #define ka_UP_ kp UP_ARROW
@@ -73,10 +60,17 @@
 #define bt_ bt BT_SEL
 #define bt__C bt BT_CLR
 
-#define BASE 0
-#define RIGHT 1
-#define LEFT 2
-#define BOTH 3
+// layer names
+#define LETTER 0
+#define SYMBOL_LETTER 1
+#define LETTER_NUMBER 2
+#define SPECIAL 3
+
+// layering system
+#define la_LS mm SYMBOL_LETTER LEFT_SHIFT
+#define la_RS mo LETTER_NUMBER
+#define ks_ kp MOD_RSHIFT << 24 | // >
+#define ks_GR kp MOD_RSHIFT << 24 | GRAVE // >
 
 / {
     conditional_layers {
@@ -87,47 +81,64 @@
         };
     };
     macros {
+        mm: mm {
+            compatible = "zmk,behavior-macro-two-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <2>;
+            bindings
+                = <&macro_param_1to1>
+                , <&macro_press &mo MACRO_PLACEHOLDER>
+                , <&macro_param_2to1>
+                , <&macro_press &kp MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_param_2to1>
+                , <&macro_release &kp MACRO_PLACEHOLDER>
+                , <&macro_param_1to1>
+                , <&macro_release &mo MACRO_PLACEHOLDER>
+                ;
+        };
     };
     keymap {
         compatible = "zmk,keymap";
 
-        base_layer {
-            label = "BASE";
+        letter_layer {
+            label = "LETTER";
             bindings = <
 kp_TB kp_ Q kp_ W kp_ E kp_ R kp_ T   kp_ Y kp_ U kp_ I kp_ O kp_ P none_
 mp_LC kp_ A kp_ S kp_ D kp_ F kp_ G   kp_ H kp_ J kp_ K kp_ L kp_SM kp_SQ
 mp_LM kp_ Z kp_ X kp_ C kp_ V kp_ B   kp_ N kp_ M kp_CM kp_PD kp_FS mp_RO
-                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_BK
+                  kp_ES la_LS kp_SP   kp_RE la_RS kp_BK
             >;
         };
 
-        right_layer {
-            label = "RIGHT";
+        symbol_letter_layer {
+            label = "SYMBOL_LETTER";
             bindings = <
 kp_TB kp N1 kp N2 kp N3 kp N4 kp N5   kp_ Y kp_ U kp_ I kp_ O kp_ P none_
 mp_LC kp N6 kp N7 kp N8 kp N9 kp N0   kp_ H kp_ J kp_ K kp_ L kp_SM kp_SQ
 mp_LM kp_MI kp_EQ kp_BS kp_LK kp_RK   kp_ N kp_ M kp_CM kp_PD kp_FS mp_RO
-                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_DE
+                  kp_ES la_LS kp_SP   kp_RE la_RS kp_DE
             >;
         };
 
-        left_layer {
-            label = "LEFT";
+        letter_number_layer {
+            label = "LETTER_NUMBER";
             bindings = <
-kp_GR kp_ Q kp_ W kp_ E kp_ R kp_ T   kp_LK kp_RK kp N7 kp N8 kp N9 none_
-mp_LC kp_ A kp_ S kp_ D kp_ F kp_ G   kp_MI kp_EQ kp N4 kp N5 kp N6 kp_BS
-mp_LM kp_ Z kp_ X kp_ C kp_ V kp_ B   kp_GR kp N0 kp N1 kp N2 kp N3 mp_RO
-                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_BK
+ks_GR ks_ Q ks_ W ks_ E ks_ R ks_ T   kp_LK kp_RK kp N7 kp N8 kp N9 none_
+mp_LC ks_ A ks_ S ks_ D ks_ F ks_ G   kp_MI kp_EQ kp N4 kp N5 kp N6 kp_BS
+mp_LM ks_ Z ks_ X ks_ C ks_ V ks_ B   kp_GR kp N0 kp N1 kp N2 kp N3 mp_RO
+                  kp_ES la_LS kp_SP   kp_RE la_RS kp_BK
             >;
         };
 
-        both_layer {
-            label = "BOTH";
+        special_layer {
+            label = "SPECIAL";
             bindings = <
 none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
 none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
 none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
-                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_BK
+                  kp_ES la_LS kp_SP   kp_RE la_RS kp_BK
             >;
         };
     };
