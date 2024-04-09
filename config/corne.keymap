@@ -8,51 +8,56 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+// general abbreviations
 #define kp &kp
-#define kp__ kp
-#define none__ &none
-#define trans_ &trans
+#define kp_ kp
+#define none_ &none
+#define trans &trans
 #define mo &mo
 #define bt &bt
 
-#define bt_0__ bt BT_SEL 0
-#define bt_1__ bt BT_SEL 1
-#define bt_2__ bt BT_SEL 2
-#define bt_C__ bt BT_CLR
+// modifiers
+#define mp_LO kp LEFT_ALT
+#define mp_LC kp LEFT_CONTROL
+#define mp_LM kp LEFT_GUI
+#define mp_LS kp LEFT_SHIFT
+#define mp_RS kp RIGHT_SHIFT
+#define mp_RM kp RIGHT_GUI
+#define mp_RC kp RIGHT_CONTROL
+#define mp_RO kp RIGHT_ALT
 
-#define SPA SPACE
-#define BSP BACKSPACE
-#define COM COMMA
-#define SEM SEMI
-#define FSL FSLH
+// universal special characters
 
-#define mp_LOP kp LEFT_ALT
-#define mp_LCT kp LEFT_CONTROL
-#define mp_LCM kp LEFT_GUI
-#define mp_LSH kp LEFT_SHIFT
+// base special characters
+#define kp_SP SPACE
+#define kp_BK BACKSPACE
+#define kp_CM COMMA
+#define kp_PD PERIOD
+#define kp_SM SEMICOLON
+#define kp_FS SLASH
+#define kp_SQ SINGLE_QUOTE
+#define kp_TB TAB
+#define kp_ES ESCAPE
+#define kp_RE RETURN
 
-#define mp_RSH kp RIGHT_SHIFT
-#define mp_RCM kp RIGHT_GUI
-#define mp_RCT kp RIGHT_CONTROL
-#define mp_ROP kp RIGHT_ALT
+// right only special characters
+#define kp_DE DELETE
 
-#define K_1 KP_NUMBER_1
-#define K_2 KP_NUMBER_2
-#define K_3 KP_NUMBER_3
-#define K_4 KP_NUMBER_4
-#define K_5 KP_NUMBER_5
-#define K_6 KP_NUMBER_6
-#define K_7 KP_NUMBER_7
-#define K_8 KP_NUMBER_8
-#define K_9 KP_NUMBER_9
-#define K_0 KP_NUMBER_0
+// right and left special characters
+#define kp_MI kp MINUS
+#define kp_EQ kp EQUAL
+#define kp_BS BACKSLASH
+#define kp_LK LEFT_BRACKET
+#define kp_RK RIGHT_BRACKET
 
-#define kp_AST kp KP_ASTERISK
+// left only special characters
+#define kp_GR GRAVE
+
+#define kp_EX kp KP_ASTERISK
 #define kp_SLA kp KP_SLASH
 #define kp_DOT kp KP_DOT
 #define kp_PLU kp KP_PLUS
 #define kp_MIN kp KP_MINUS
-#define kp_EQU kp KP_EQUALS
 #define kp_GRA kp GRAVE
 #define kp_TIL kp TILDE
 #define kp_EXC kp EXCL
@@ -64,18 +69,21 @@
 #define ka_UP_ kp UP_ARROW
 #define ka_RIG kp RIGHT_ARROW
 
-#define BAS 0
-#define NUM 1
-#define SPE 2
-#define EXT 3
+// bluetooth
+#define bt_ bt BT_SEL
+#define bt__C bt BT_CLR
+
+#define BASE 0
+#define RIGHT 1
+#define LEFT 2
+#define BOTH 3
 
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
-
         tri_layer {
-            if-layers = <NUM SPE>;
-            then-layer = <EXT>;
+            if-layers = <RIGHT LEFT>;
+            then-layer = <BOTH>;
         };
     };
     macros {
@@ -86,30 +94,40 @@
         base_layer {
             label = "BASE";
             bindings = <
-kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T   kp__ Y kp__ U kp__ I kp__ O kp__ P kp BSP
-kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G   kp__ H kp__ J kp__ K kp__ L kp SEM kp SQT
-mp_LSH kp__ Z kp__ X kp__ C kp__ V kp__ B   kp__ N kp__ M kp COM kp DOT kp FSL mp_RSH
-                     kp LCT kp LCM kp SPA   kp RET mo NUM mo SPE
+kp_TB kp_ Q kp_ W kp_ E kp_ R kp_ T   kp_ Y kp_ U kp_ I kp_ O kp_ P none_
+mp_LC kp_ A kp_ S kp_ D kp_ F kp_ G   kp_ H kp_ J kp_ K kp_ L kp_SM kp_SQ
+mp_LM kp_ Z kp_ X kp_ C kp_ V kp_ B   kp_ N kp_ M kp_CM kp_PD kp_FS mp_RO
+                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_BK
             >;
         };
 
-        number_layer {
-            label = "NUMBER";
+        right_layer {
+            label = "RIGHT";
             bindings = <
-none__ none__ none__ none__ none__ none__   none__ kp K_7 kp K_8 kp K_9 kp_AST trans_
-none__ bt_C__ bt_0__ bt_1__ bt_2__ none__   kp_EQU kp K_4 kp K_5 kp K_6 kp_MIN kp DEL
-trans_ none__ none__ none__ none__ none__   kp K_0 kp K_1 kp K_2 kp K_3 kp_PLU trans_
-                     none__ trans_ kp SPA   kp RET trans_ trans_
+kp_TB kp N1 kp N2 kp N3 kp N4 kp N5   kp_ Y kp_ U kp_ I kp_ O kp_ P none_
+mp_LC kp N6 kp N7 kp N8 kp N9 kp N0   kp_ H kp_ J kp_ K kp_ L kp_SM kp_SQ
+mp_LM kp_MI kp_EQ kp_BS kp_LK kp_RK   kp_ N kp_ M kp_CM kp_PD kp_FS mp_RO
+                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_DE
             >;
         };
 
-        special_layer {
-            label = "SPECIAL";
+        left_layer {
+            label = "LEFT";
             bindings = <
-kp_TIL kp__ Q kp__ W kp__ E kp__ R kp__ T   none__ none__ none__ none__ none__ trans_
-kp_GRA kp__ A kp__ S kp__ D kp__ F kp__ G   none__ mp_RSH mp_RCM mp_RCT mp_ROP kp DEL
-trans_ kp__ Z kp__ X kp__ C kp__ V kp__ B   none__ none__ none__ none__ none__ none__
-                     none__ none__ kp SPA   kp RET trans_ trans_
+kp_GR kp_ Q kp_ W kp_ E kp_ R kp_ T   kp_LK kp_RK kp N7 kp N8 kp N9 none_
+mp_LC kp_ A kp_ S kp_ D kp_ F kp_ G   kp_MI kp_EQ kp N4 kp N5 kp N6 kp_BS
+mp_LM kp_ Z kp_ X kp_ C kp_ V kp_ B   kp_GR kp N0 kp N1 kp N2 kp N3 mp_RO
+                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_BK
+            >;
+        };
+
+        both_layer {
+            label = "BOTH";
+            bindings = <
+none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
+none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
+none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
+                  kp_ES mp_LS kp_SP   kp_RE mp_RS kp_BK
             >;
         };
     };
