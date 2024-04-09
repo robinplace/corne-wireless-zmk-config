@@ -1,3 +1,5 @@
 #!/bin/zsh
 
+# docker pull zmkfirmware/zmk-build-arm:stable
+
 docker run --rm -it -v .:/root -w /root zmkfirmware/zmk-build-arm:stable bash
