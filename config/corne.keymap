@@ -15,16 +15,10 @@
 #define mo &mo
 #define bt &bt
 
-#define B_B 0
-#define M_B 1
-#define B_M 2
-#define M_N 3
-#define S_M 4
-
-#define bt___0 bt BT_SEL 0
-#define bt___1 bt BT_SEL 1
-#define bt___2 bt BT_SEL 2
-#define bt___C bt BT_CLR
+#define bt_0__ bt BT_SEL 0
+#define bt_1__ bt BT_SEL 1
+#define bt_2__ bt BT_SEL 2
+#define bt_C__ bt BT_CLR
 
 #define SPA SPACE
 #define BSP BACKSPACE
@@ -53,67 +47,69 @@
 #define K_9 KP_NUMBER_9
 #define K_0 KP_NUMBER_0
 
-#define K_A KP_ASTERISK
-#define K_S KP_SLASH
-#define K_D KP_DOT
-#define K_P KP_PLUS
-#define K_M KP_MINUS
+#define kp_AST kp KP_ASTERISK
+#define kp_SLA kp KP_SLASH
+#define kp_DOT kp KP_DOT
+#define kp_PLU kp KP_PLUS
+#define kp_MIN kp KP_MINUS
+#define kp_EQU kp KP_EQUALS
+#define kp_GRA kp GRAVE
+#define kp_TIL kp TILDE
+#define kp_EXC kp EXCL
+#define kp_AMP kp AMPS
+#define kp_ATS kp AT
 
-////// ////// ////// ////// ////// ////// ////// ////// ////// ////// ////// //////
+#define ka_LEF kp LEFT_ARROW
+#define ka_DOW kp DOWN_ARROW
+#define ka_UP_ kp UP_ARROW
+#define ka_RIG kp RIGHT_ARROW
+
+#define BAS 0
+#define NUM 1
+#define SPE 2
+#define EXT 3
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        tri_layer {
+            if-layers = <NUM SPE>;
+            then-layer = <EXT>;
+        };
+    };
     macros {
     };
     keymap {
         compatible = "zmk,keymap";
 
-        base_base_layer {
-            label = "BASE_BASE";
+        base_layer {
+            label = "BASE";
             bindings = <
-kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T kp__ Y kp__ U kp__ I kp__ O kp__ P kp BSP
-kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G kp__ H kp__ J kp__ K kp__ L kp SEM kp SQT
-mp_LSH kp__ Z kp__ X kp__ C kp__ V kp__ B kp__ N kp__ M kp COM kp DOT kp FSL mp_RSH
-                     none__ mo M_B kp SPA kp RET mo B_M none__
+kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T   kp__ Y kp__ U kp__ I kp__ O kp__ P kp BSP
+kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G   kp__ H kp__ J kp__ K kp__ L kp SEM kp SQT
+mp_LSH kp__ Z kp__ X kp__ C kp__ V kp__ B   kp__ N kp__ M kp COM kp DOT kp FSL mp_RSH
+                     kp LCT kp LCM kp SPA   kp RET mo NUM mo SPE
             >;
         };
 
-        mod_base_layer {
-            label = "MOD_BASE";
+        number_layer {
+            label = "NUMBER";
             bindings = <
-none__ bt___C bt___0 bt___1 bt___2 none__ kp__ Y kp__ U kp__ I kp__ O kp__ P kp BSP
-none__ mp_LOP mp_LCT mp_LCM mp_LSH none__ kp__ H kp__ J kp__ K kp__ L kp SEM kp SQT
-none__ none__ none__ none__ none__ none__ kp__ N kp__ M kp COM kp DOT kp FSL none__
-                     none__ trans_ kp SPA kp RET none__ none__
+none__ none__ none__ none__ none__ none__   none__ kp K_7 kp K_8 kp K_9 kp_AST trans_
+none__ bt_C__ bt_0__ bt_1__ bt_2__ none__   kp_EQU kp K_4 kp K_5 kp K_6 kp_MIN kp DEL
+trans_ none__ none__ none__ none__ none__   kp K_0 kp K_1 kp K_2 kp K_3 kp_PLU trans_
+                     none__ trans_ kp SPA   kp RET trans_ trans_
             >;
         };
 
-        base_mod_layer {
-            label = "BASE_MOD";
+        special_layer {
+            label = "SPECIAL";
             bindings = <
-kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T none__ none__ none__ none__ none__ none__
-kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G none__ mp_RSH mp_RCM mp_RCT mp_ROP none__
-none__ kp__ Z kp__ X kp__ C kp__ V kp__ B none__ none__ none__ none__ none__ none__
-                     none__ none__ kp SPA kp RET trans_ none__
-            >;
-        };
-
-        mod_number_layer {
-            label = "MOD_NUMBER";
-            bindings = <
-none__ bt___C bt___0 bt___1 bt___2 none__ none__ kp K_7 kp K_8 kp K_9 kp K_A kp BSP
-none__ mp_LOP mp_LCT mp_LCM mp_LSH none__ none__ kp K_4 kp K_5 kp K_6 kp K_S kp K_P
-none__ none__ none__ none__ none__ none__ kp K_0 kp K_1 kp K_2 kp K_3 kp K_D kp K_M
-                     none__ trans_ kp SPA kp RET none__ none__
-            >;
-        };
-
-        special_mod_layer {
-            label = "SPECIAL_MOD";
-            bindings = <
-kp TAB kp__ Q kp__ W kp__ E kp__ R kp__ T none__ none__ none__ none__ none__ none__
-kp ESC kp__ A kp__ S kp__ D kp__ F kp__ G none__ mp_RSH mp_RCM mp_RCT mp_ROP none__
-none__ kp__ Z kp__ X kp__ C kp__ V kp__ B none__ none__ none__ none__ none__ none__
-                     none__ none__ kp SPA kp RET trans_ none__
+kp_TIL kp__ Q kp__ W kp__ E kp__ R kp__ T   none__ none__ none__ none__ none__ trans_
+kp_GRA kp__ A kp__ S kp__ D kp__ F kp__ G   none__ mp_RSH mp_RCM mp_RCT mp_ROP kp DEL
+trans_ kp__ Z kp__ X kp__ C kp__ V kp__ B   none__ none__ none__ none__ none__ none__
+                     none__ none__ kp SPA   kp RET trans_ trans_
             >;
         };
     };
