@@ -1,5 +1,6 @@
-#!/bin/zsh
+#!zsh
 
-# docker pull zmkfirmware/zmk-build-arm:stable
+set -ev
 
-docker run --rm -it -v .:/root -w /root zmkfirmware/zmk-build-arm:stable bash
+colima status
+colima nerdctl run --profile corne -- --rm -it -v .:/root -w /root zmkfirmware/zmk-build-arm:stable bash

@@ -1,0 +1,6 @@
+#!zsh
+
+set -ev
+
+colima version
+colima start --profile corne --runtime containerd --activate --arch aarch64 --cpu 2 --disk 8 --memory 1 --mount ${HOME}:w --mount-inotify --ssh-agent --vm-type vz --vz-rosetta --verbose --foreground

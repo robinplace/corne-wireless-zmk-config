@@ -1,0 +1,10 @@
+#!/bin/sh
+
+rm left.uf2
+rm right.uf2
+
+west build -s zmk/app -d left -b nice_nano_v2 -- -DZMK_CONFIG=/root/config -DSHIELD=corne_left
+mv left/zephyr/zmk.uf2 left.uf2
+
+west build -s zmk/app -d right -b nice_nano_v2 -- -DZMK_CONFIG=/root/config -DSHIELD=corne_right
+mv right/zephyr/zmk.uf2 right.uf2

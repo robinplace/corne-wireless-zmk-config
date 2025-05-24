@@ -1,0 +1,567 @@
+important
+
+left hand only
+⌘cos tab
+⌘cs escape
+⌘cs c
+⌘cs v
+⌘cs f
+⌘cs r
+⌘c q
+⌘ a
+⌘ t
+c d
+c c
+c z
+c l
+
+
+current
+
+layer 0
+t q w e r t   y u i o p b
+e a s d f g   h j k l ; '
+s z x c v b   n m , . / s
+      ⌘ 1 _   e 2 o
+
+layer 1
+  1 2 3 4 5   6 7 8 9 0  
+c 0 1 2 3 4   ← ↓ ↑ →    
+
+      ⌘ █ _
+
+layer 2
+  ! @ # $ %   ^ & * ( )  
+c             - = [ ] \ `
+              _ + { } | ~
+      ⌘         █
+
+shift games
+
+layer 0 base
+t q w e r t   y u i o p b
+e a s d f g   h j k l ; '
+1 z x c v b   n m , . / 2
+      c ⌘ _   e 3 o
+
+layer 1 lshift
+t ! @ # $ %   Y U I O P b
+e 1 2 3 4 5   H J K L : "
+█ - _ = + |   N M < > ?  
+      c ⌘ _   e 3 o
+
+layer 2 rshift
+t Q W E R T   ^ & * ( ) b
+e A S D F G   6 7 8 9 0  
+  Z X C V B   \ [ ] { } █
+      c ⌘ _   e 3 o
+
+layer 3 special
+              0 $        
+c 0 1 2 3 4   ← ↓ ↑ →    
+s             b e       s
+      c ⌘ _   e █ o
+
+
+shift straightforwardly
+
+layer 0 base
+t q w e r t   y u i o p b
+e a s d f g   h j k l ; '
+2 z x c v b   n m , . / 3
+      c ⌘ _   e 1 o
+
+layer 1 special
+    7 8 9     0 $ [ ]    
+  b 4 5 6     ← ↓ ↑ →    
+s 0 1 2 3     b e   a   s
+      c ⌘ _   e █ o
+
+layer 2 lshift
+t ! @ # $ %   Y U I O P b
+e             H J K L : "
+█ _ + { } |   N M < > ?  
+      c ⌘ _   e 3 o
+
+layer 3 rshift
+t Q W E R T   ^ & * ( )  
+e A S D F G              
+  Z X C V B             █
+      c ⌘ _   e 3 o
+
+
+modifiers opposite
+
+layer 0 BASE
+t q w e r t   y u i o p b
+e a s d f g   h j k l ; '
+  z x c v b   n m , . /  
+        1 _   e 2  
+
+layer 1 MOD_BASE
+  c 0 1 2     y u i o p b
+  s o c ⌘ 5   h j k l ; '
+              n m , . /  
+        █ _   e    
+
+layer 2 BASE_MOD
+t q w e r t              
+e a s d f g   6 s ⌘ c o  
+  z x c v b              
+          _   e █  
+
+layer 3 MOD_NUMBER
+t               7 8 9 * b
+e o c ⌘ s █     4 5 6 / +
+          e   0 1 2 3 . -
+        █ _   e
+
+layer 4 SPECIAL_MOD
+~ ! @ # $ %              
+^ & * ( ) |   █ ⌘ c o s  
+  [ ] { } \              
+          _   e █
+
+smart combinations
+
+layer 0 BASE
+t q w e r t   y u i o p b
+e a s d f g   h j k l ; '
+s z x c v b   n m , . /  
+      c ⌘ _   s o 1
+
+layer 1 MOD_BASE
+  c 0 1 2     y u i o p b
+  s o c ⌘ 5   h j k l ; '
+              n m , . /  
+        █ _   e    
+
+layer 2 BASE_MOD
+t q w e r t              
+e a s d f g   6 s ⌘ c o  
+  z x c v b              
+          _   e █  
+
+layer 3 MOD_NUMBER
+t               7 8 9 * b
+e o c ⌘ s █     4 5 6 / +
+          e   0 1 2 3 . -
+        █ _   e
+
+layer 4 SPECIAL_MOD
+~ ! @ # $ %              
+^ & * ( ) |   █ ⌘ c o s  
+  [ ] { } \              
+          _   e █
+
+high level goals
+taking notes in vim mode (two hand, shift and special opposite)
+coding and flipping to a browser
+researching in a browser (one hand, command, control, shift, tab adjacent)
+coding in an ide
+games like minecraft, league (one hand, letters adjacent)
+esoteric shortcuts
+
+analysis
+special is shi, com, con, opt for 16 combinations
+
+factors
+type -> little finger shift opposite
+type -> either thumb space, enter, backspace
+type -> benign little finger adjacent
+no need for shift adjacent
+no need for command or control with special
+little finger special adjacent
+vim -> left thumb escape
+browse -> left command or control or shift with tab
+browse -> left command with shift and letter
+tty -> left control with letter
+calc -> shift and control with enter
+no need for shift with backspace
+ergo -> no adjacent modifiers with little finger
+type -> need to consider the delete key
+mac -> option is sometimes useful e.g. command option v
+command could make shift behave backwards?
+
+implications
+left thumb has command, control, space
+right thumb has backspace, escape
+either thumb has space, enter, backspace, escape, ?, ?
+left little finger has shift, tab, ?
+right little finger has shift, quote, ?
+
+aliases
+⌘ is command
+o is option
+c is control
+↑ is shift
+r is return
+e is escape
+← is backspace
+_ is space
+→ is tab
+
+shift opposite
+
+layer 0 base
+e q w e r t   y u i o p o
+→ a s d f g   h j k l ; '
+s z x c v b   n m , . / s
+      c ⌘ _   ← r  
+
+layer 1 lshift
+t ! @ # $ %   Y U I O P b
+e 1 2 3 4 5   H J K L : "
+█ - _ = + |   N M < > ?  
+      c ⌘ _   e 3 o
+
+layer 2 rshift
+t Q W E R T   ^ & * ( ) b
+e A S D F G   6 7 8 9 0  
+  Z X C V B   \ [ ] { } █
+      c ⌘ _   e 3 o
+
+layer 3 special
+              0 $        
+c 0 1 2 3 4   ← ↓ ↑ →    
+s             b e       s
+      c ⌘ _   e █ o
+
+shift another
+
+layer 0 base
+t q w e r t   y u i o p b
+e a s d f g   h j k l ; '
+2 z x c v b   n m , . / 3
+      c ⌘ _   e 1 o
+
+layer 1 special
+    7 8 9     0 $ [ ]    
+  b 4 5 6     ← ↓ ↑ →    
+s 0 1 2 3     b e   a   s
+      c ⌘ _   e █ o
+
+layer 2 lshift
+t ! @ # $ %   Y U I O P b
+e             H J K L : "
+█ _ + { } |   N M < > ?  
+      c ⌘ _   e 3 o
+
+layer 3 rshift
+t Q W E R T   ^ & * ( )  
+e A S D F G              
+  Z X C V B             █
+      c ⌘ _   e 3 o
+
+
+
+important special keys
+
+control shift tab
+command shift tab
+command shift escape
+control c
+control v
+
+
+current
+layer 0
+t q w e r t       y u i o p b
+e a s d f g       h j k l ; '
+s z x c v b       n m , . / s
+        ⌘ 1 _   e 2 o
+layer 1
+  1 2 3 4 5       6 7 8 9 0  
+c ⁰ ¹ ² ³ ⁴       ← ↓ ↑ →    
+                             
+        ⌘ █ _
+layer 2
+  ! @ # $ %       ^ & * ( )  
+c                 - = [ ] \ `
+                  _ + { } | ~
+        ⌘         █
+
+shift games
+layer 0 base
+t q w e r t       y u i o p b
+e a s d f g       h j k l ; '
+¹ z x c v b       n m , . / ²
+        c ⌘ _   e ³ o
+layer 1 lshift
+t ! @ # $ %       Y U I O P b
+e 1 2 3 4 5       H J K L : "
+█ - _ = + |       N M < > ?  
+        c ⌘ _   e ³ o
+layer 2 rshift
+t Q W E R T       ^ & * ( ) b
+e A S D F G       6 7 8 9 0  
+  Z X C V B       \ [ ] { } █
+        c ⌘ _   e ³ o
+layer 3 special
+                  0 $        
+c ⁰ ¹ ² ³ ⁴       ← ↓ ↑ →    
+s                 b e       s
+        c ⌘ _   e █ o
+
+shift straightforwardly
+layer 0 base
+t q w e r t       y u i o p b
+e a s d f g       h j k l ; '
+² z x c v b       n m , . / ³
+        c ⌘ _   e ¹ o
+layer 1 special
+    7 8 9         0 $ [ ]    
+  b 4 5 6         ← ↓ ↑ →    
+s 0 1 2 3         b e   a   s
+        c ⌘ _   e █ o
+layer 2 lshift
+t ! @ # $ %       Y U I O P b
+e                 H J K L : "
+█ _ + { } |       N M < > ?  
+        c ⌘ _   e ³ o
+layer 3 rshift
+t Q W E R T       ^ & * ( )  
+e A S D F G                  
+  Z X C V B                 █
+        c ⌘ _   e ³ o
+
+modifiers opposite
+layer 0 BASE
+t q w e r t       y u i o p b
+e a s d f g       h j k l ; '
+  z x c v b       n m , . /  
+        ⌘ ² _   e ³ ⁴
+layer 2 RIGHT_BASE
+  c 1 2 3         y u i o p b
+  s o c ⌘ ⁵       h j k l ; '
+                  n m , . /  
+        ⌘ █ _   e ³ ⁴
+layer 3 LEFT_BASE
+t q w e r t                      
+e a s d f g           ⁶ s ⌘ c o  
+  z x c v b                      
+          ¹ ² _   e █ ⁴
+layer 5 RIGHT_NUMBER
+                    7 8 9 * b
+  o c ⌘ s █         4 5 6 / +
+          e       0 1 2 3 . -
+        ⌘ █ _   e ³ ⁴
+layer 6 LEFT_SPECIAL
+~ ! @ # $ %                  
+^ & * ( ) |       █ ⌘ c o s  
+  [ ] { } \                  
+        ⌘ ² _   e █ ⁴
+
+
+high level options
+- shift is capital for the opposite keyboard and
+  special for adjacent
+  - this is great for traditional typing
+  - this isn't great for one handed hotkeys
+- modifiers are on an adjacent only layer
+  - again this isn't great for one handed hotkeys
+
+one hand hotkey applies only to the right hand
+right hand has four free slots
+shift, command, control, option
+
+one hand
+
+layer 0 BASE
+t q w e r t       y u i o p b
+e a s d f g       h j k l ; '
+s z x c v b       n m , . / s
+        c ⌘ _   e ¹ ²
+layer 1 NUMBER
+                    7 8 9 * b
+  c ¹ ² ³         = 4 5 6 - d
+s                 0 1 2 3 + s
+        c ⌘ _   e █  
+layer 2 SPECIAL
+~ ! @ # $ %               \ b
+` & ^ ( ) >       ← ↓ ↑ → | d
+s [ ] { } <       h d u e   s
+        c ⌘ _   e   █
+
+one hand traditional
+
+layer 0 BASE
+t q w e r t       y u i o p b
+e a s d f g       h j k l ; '
+s z x c v b       n m , . / s
+        c ⌘ _   e ¹ ²
+layer 1 NUMBER
+t ! @ # $ %       ^ & * ( ) b
+e 1 2 3 4 5       6 7 8 9 0
+s ~ ` + = |       [ ] { } \ s
+        c ⌘ _   e █  
+layer 2 SPECIAL
+~ ! @ # $ %               \ b
+` & ^ ( )         ← ↓ ↑ → | d
+s [ ] { }         h d u e   s
+        c ⌘ _   e   █
+
+???
+t q w e r t
+e a s d f g
+s z x c v b
+        1 2 _
+
+t          
+e a s d f g
+s          
+        u o d
+
+for typing must have across both hands
+letters
+space
+enter
+shift
+number and symbol layer
+tab
+escape
+
+for hotkeys must have on right hand
+letters
+shift
+command
+control
+option
+space
+tab
+escape
+
+all special
+
+~!@#$%^&*()_+
+`1234567890-=
+           {}|
+           []\
+          :"
+          ;'
+        <>?
+        ,./
+
+missing special
+
+~!@#$%^&*()_+
+`1234567890-=
+           {}|
+           []\
+
+send
+
+layer BASE
+t q w e r t       y u i o p b
+e a s d f g       h j k l ; '
+s z x c v b       n m , . / s
+        c ⌘ _   e ¹ ²
+layer SPECIAL
+~ ! @ # $ %       ^ & * ( ) d
+` 1 2 3 4 5       6 7 8 9 0 |
+  - _ = +           [ ] { } \
+        c ⌘ _   e █  
+layer EXTRA
+t 0 1 2 c         ← ▶ → ↑ ↓ +
+e                 ← ↓ ↑ → ⌕ -
+s                 u e h d ⎇ m
+        c ⌘ _   e   █
+layer FUNCTION
+1 2 3 4 5 6       7 8 9 0 1 2
+                             
+                             
+        c ⌘ _   e █ █
+
+oh lol don't need shift special
+doesn't work, option has to be on right hand
+oh wait that's not true, it's ⌘ c s drag
+
+opposite shift
+
+layer BASE
+t q w e r t       y u i o p ⇐
+e a s d f g       h j k l ; '
+s z x c v b       n m , . / s
+        c ⌘ _   e ¹ ²
+layer MOD_BASE
+t ! @ # $ %       Y U I O P ⇒
+e ^ & * ( )       H J K L ; '
+█ _ + | { }       N M < > ?  
+        c ⌘ _   e ¹ ²
+layer BASE_MOD
+~ Q W E R T       [ ] 7 8 9 ⇐
+` A S D F G       - = 4 5 6 \
+  Z X C V B       . 0 1 2 3 █
+        c ⌘ _   e ¹ ²
+
+alternate shift
+
+layer LETTER
+⇔ q w e r t       y u i o p ¹
+‸ a s d f g       h j k l ; '
+⌘ z x c v b       n m , . / ⎇
+        ⊗ ⇑ ˽   ↵ ⇑ ⇐
+layer SYMBOL_LETTER
+⇔ ! @ # $ %       Y U I O P ¹
+‸ ^ & * ( )       H J K L : "
+⌘ _ + | { }       N M < > ? ⎇
+        ⊗ █ ˽   ↵ ⇑ ⇐
+layer LETTER_NUMBER
+~ Q W E R T       [ ] 7 8 9 ¹
+‸ A S D F G       - = 4 5 6 \
+⌘ Z X C V B       ` 0 1 2 3 ⎇
+        ⊗ ⇑ ˽   ↵ █ ⇒
+layer SPECIAL
+                            ¹
+                             
+                            ⎇
+        ⊗ █ ˽   ↵ █ ⇐
+layer SPECIAL
+                            █
+                             
+                            ⎇
+        ⊗ ⇑ ˽   ↵ ⇑ ⇐
+
+
+
+
+what sucks is i probably can't do this flip-shift thing
+need ⌘⇑t, ⌘⇑z, ⌘z, ⌘^⇑, ⌘⇔, ⌘⇑⇔ on left hand only
+probably can ignore the option key
+
+is there any way to rescue flip-shift
+nope
+
+if we have only one shift it goes on the right thumb
+probably right next to space
+
+
+
+thumb shift
+
+layer LETTER
+⇔ q w e r t       y u i o p ¹
+‸ a s d f g       h j k l ; '
+⌘ z x c v b       n m , . / ⎇
+        ↖ ⇑ ˽   ↵   ⇐
+layer SHIFT
+⇔ Q W E R T       Y U I O P ¹
+‸ A S D F G       H J K L : "
+⌘ Z X C V B       N M < > ? ⎇
+        ↖ █ ˽   ↵   ⇐
+layer LETTER_NUMBER
+~ Q W E R T       [ ] 7 8 9 ¹
+‸ A S D F G       - = 4 5 6 \
+⌘ Z X C V B       ` 0 1 2 3 ⎇
+        ↖ ⇑ ˽   ↵   ⇒
+layer SPECIAL
+                            ¹
+                             
+                            ⎇
+        ↖ █ ˽   ↵ █ ⇐
+layer SPECIAL
+                            █
+                             
+                            ⎇
+        ↖ ⇑ ˽   ↵ ⇑ ⇐
+

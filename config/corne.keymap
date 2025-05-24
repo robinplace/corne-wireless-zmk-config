@@ -1,151 +1,42 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-// general abbreviations
-#define kp &kp
-#define kp_ kp
-#define none_ &none
-#define trans &trans
-
-// modifiers
-#define mp_LO kp LEFT_ALT
-#define mp_LC kp LEFT_CONTROL
-#define mp_LM kp LEFT_GUI
-#define mp_RM kp RIGHT_GUI
-#define mp_RC kp RIGHT_CONTROL
-#define mp_RO kp RIGHT_ALT
-
-// universal special characters
-
-// base special characters
-#define kp_SP kp SPACE
-#define kp_BK kp BACKSPACE
-#define kp_CM kp COMMA
-#define kp_PD kp PERIOD
-#define kp_SM kp SEMICOLON
-#define kp_FS kp SLASH
-#define kp_SQ kp SINGLE_QUOTE
-#define kp_TB kp TAB
-#define kp_ES kp ESCAPE
-#define kp_RE kp RETURN
-
-// right only special characters
-#define kp_DE kp DELETE
-
-// right and left special characters
-#define kp_MI kp MINUS
-#define kp_EQ kp EQUAL
-#define kp_BS kp BACKSLASH
-#define kp_LK kp LEFT_BRACKET
-#define kp_RK kp RIGHT_BRACKET
-
-// left only special characters
-#define kp_GR kp GRAVE
-
-#define ka_LEF kp LEFT_ARROW
-#define ka_DOW kp DOWN_ARROW
-#define ka_UP_ kp UP_ARROW
-#define ka_RIG kp RIGHT_ARROW
-
-// bluetooth
 #define bt_ &bt BT_SEL
-#define bt__C &bt BT_CLR
-
-// layer names
-#define LETTER 0
-#define SYMBOL_LETTER 1
-#define LETTER_NUMBER 2
-#define SPECIAL 3
-
-// layering system
-#define la_LS &mm SYMBOL_LETTER LEFT_SHIFT
-#define la_RS &mo LETTER_NUMBER
-#define ks_ &ks
-#define ks_GR &ks GRAVE
+#define bt__c &bt BT_CLR
+#define st_un &studio_unlock
+#define boot_ &bootloader
+#define none_ &none
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <SYMBOL_LETTER LETTER_NUMBER>;
-            then-layer = <SPECIAL>;
-        };
-    };
-    macros {
-        mm: mm {
-            compatible = "zmk,behavior-macro-two-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <2>;
-            bindings = <&macro_param_1to1>,
-                       <&macro_press &mo MACRO_PLACEHOLDER>,
-                       <&macro_param_2to1>,
-                       <&macro_press kp MACRO_PLACEHOLDER>,
-                       <&macro_pause_for_release>,
-                       <&macro_param_2to1>,
-                       <&macro_release kp MACRO_PLACEHOLDER>,
-                       <&macro_param_1to1>,
-                       <&macro_release &mo MACRO_PLACEHOLDER>;
-        };
-        ks: ks {
-            compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1>,
-                       <&macro_press kp RS(MACRO_PLACEHOLDER)>,
-                       <&macro_pause_for_release>,
-                       <&macro_param_1to1>,
-                       <&macro_release kp RS(MACRO_PLACEHOLDER)>;
-        };
-    };
     keymap {
         compatible = "zmk,keymap";
 
-        letter_layer {
-            display-name = "LETTER";
+        layer_initial {
             bindings = <
-kp_TB kp_ Q kp_ W kp_ E kp_ R kp_ T   kp_ Y kp_ U kp_ I kp_ O kp_ P none_
-mp_LC kp_ A kp_ S kp_ D kp_ F kp_ G   kp_ H kp_ J kp_ K kp_ L kp_SM kp_SQ
-mp_LM kp_ Z kp_ X kp_ C kp_ V kp_ B   kp_ N kp_ M kp_CM kp_PD kp_FS mp_RO
-                  kp_ES la_LS kp_SP   kp_RE la_RS kp_BK
+bt_ 0 bt_ 1 bt_ 2 bt_ 3 bt_ 4 bt__c   none_ none_ none_ none_ none_ none_
+none_ none_ none_ none_ none_ boot_   boot_ none_ none_ none_ none_ none_
+none_ none_ none_ none_ none_ st_un   none_ none_ none_ none_ none_ none_
+                  none_ none_ none_   none_ none_ none_
             >;
         };
+    };
+};
 
-        symbol_letter_layer {
-            display-name = "SYMBOL_LETTER";
-            bindings = <
-kp_TB kp N1 kp N2 kp N3 kp N4 kp N5   kp_ Y kp_ U kp_ I kp_ O kp_ P none_
-mp_LC kp N6 kp N7 kp N8 kp N9 kp N0   kp_ H kp_ J kp_ K kp_ L kp_SM kp_SQ
-mp_LM kp_MI kp_EQ kp_BS kp_LK kp_RK   kp_ N kp_ M kp_CM kp_PD kp_FS mp_RO
-                  kp_ES la_LS kp_SP   kp_RE la_RS kp_DE
-            >;
-        };
 
-        letter_number_layer {
-            display-name = "LETTER_NUMBER";
-            bindings = <
-ks_GR ks_ Q ks_ W ks_ E ks_ R ks_ T   kp_LK kp_RK kp N7 kp N8 kp N9 none_
-mp_LC ks_ A ks_ S ks_ D ks_ F ks_ G   kp_MI kp_EQ kp N4 kp N5 kp N6 kp_BS
-mp_LM ks_ Z ks_ X ks_ C ks_ V ks_ B   kp_GR kp N0 kp N1 kp N2 kp N3 mp_RO
-                  kp_ES la_LS kp_SP   kp_RE la_RS kp_BK
-            >;
-        };
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 
-        special_layer {
-            display-name = "SPECIAL";
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        layer_0 {
             bindings = <
-none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
-none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
-none_ none_ none_ none_ none_ none_   none_ none_ none_ none_ none_ none_
-                  kp_ES la_LS kp_SP   kp_RE la_RS kp_BK
+&trans  &bt BT_SEL 0  &trans  &bt BT_CLR  &bootloader  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans  &trans      &trans       &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans  &trans      &trans       &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                              &trans      &trans       &trans    &trans  &trans  &trans
             >;
         };
     };
